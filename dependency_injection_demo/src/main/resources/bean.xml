@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+                           
+<!-- Defining the bean with static values for Setter Injection -->
+<bean id = "emp" class = "com.example.demo.entity.Employee">
+	<property name="id" value="10"></property>
+	<property name = "name" value = "Sreedhar"></property>
+	<property name = "role" value = "software-developer trainee"></property>
+	<property name = "map">
+	<map>
+		<entry key="Sreedhar" value="The employee role is developer trainee"></entry>
+	</map>
+	</property>
+	<property name="skills">
+		<list>
+			<value>java</value>
+			<value>sql</value>
+		</list>
+	</property>
+	</bean>
+	<bean id = "empsi" class = "com.example.demo.setter_injection.EmpSetterInjection">
+		<property name="emp" ref="emp"></property>
+	</bean>
+	<bean id = "student" class = "com.example.demo.entity.Student">
+		<property name="rollNumber" value = "100"></property>
+		<property name = "sname" value="Sudeep"></property>
+		<property name = "schoolName" value = "Govt High School"></property>
+		<property name = "marks">
+			<map>
+				<entry key = "English" value = "72"></entry>
+				<entry key = "Kannada" value = "84"></entry>
+			</map>
+		</property>
+	</bean>
+	<bean id = "studentci" class = "com.example.demo.constructor_injection.StudentConstructorInjection">
+		<constructor-arg ref="student"></constructor-arg>
+	</bean>
+</beans>
